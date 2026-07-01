@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton | Let's explore together</title>
+    <meta name="description" content="I spend my time between roads, mountains, and the next good plan in North Thailand. Let's explore.">
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #2c2c2c;
+            --text-muted: #6b6b6b;
+            --accent-color: #d35400; /* Warm terracotta */
+            --accent-hover: #e67e22;
+            --card-bg: #ffffff;
+            --border-color: #eae5d9;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #1a1a1a;
+            --text-color: #e8e8e8;
+            --text-muted: #a0a0a0;
+            --accent-color: #e67e22;
+            --accent-hover: #d35400;
+            --card-bg: #242424;
+            --border-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Nav & Toggle */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px 0;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-color);
+            font-size: 1.2rem;
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: var(--border-color);
+        }
+
+        /* Typography */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .thai-text {
+            color: var(--accent-color);
+            font-style: italic;
+            font-size: 1rem;
+            display: block;
+            margin-top: -0.5rem;
+            margin-bottom: 1.2rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 40px 0 60px 0;
+            text-align: left;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 300px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-bottom: 2rem;
+            background-color: var(--border-color);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        /* Buttons & Links */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: background-color 0.2s ease;
+            text-align: center;
+        }
+
+        [data-theme="dark"] .btn {
+            color: #1a1a1a;
+        }
+
+        [data-theme="dark"] .btn:hover {
+            color: #1a1a1a;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 2px solid var(--accent-color);
+        }
+
+        [data-theme="dark"] .btn-outline {
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .btn-outline:hover {
+            color: #1a1a1a;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+            padding-bottom: 80px;
+        }
+
+        /* Cards for 'What I'm into' */
+        .cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 24px;
+            border-radius: 8px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p {
+            font-size: 1rem;
+            margin-bottom: 0;
+            color: var(--text-muted);
+        }
+
+        /* Contact Section */
+        .contact-box {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .qr-code {
+            max-width: 180px;
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px auto;
+            display: block;
+            border: 1px solid var(--border-color);
+        }
+
+        .social-links {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        @media (min-width: 500px) {
+            .social-links {
+                flex-direction: row;
+                justify-content: center;
+                gap: 24px;
+            }
+        }
+
+        .social-links a {
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+        </nav>
+
+        <main>
+            <!-- 1. Hero -->
+            <section class="hero">
+                <img src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22800%22%20height%3D%22400%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20800%20400%22%20preserveAspectRatio%3D%22none%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23eae5d9%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22300%22%20y%3D%22220%22%20fill%3D%22%23999%22%20font-family%3D%22sans-serif%22%20font-size%3D%2240pt%22%3EHero%20Image%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Anton exploring North Thailand" class="hero-image">
+                <h1>I spend my time between roads, mountains, and the next good plan.</h1>
+                <p class="hero-subtitle">I'm Anton. Usually somewhere between rides, rivers, coffee, and learning more Thai here in the north.</p>
+                <p>If you want to ride, explore, talk, or just get out somewhere quiet, let's make it happen.</p>
+                <div class="cta-group">
+                    <a href="https://line.me/ti/p/~anton_svk" class="btn" target="_blank" rel="noopener noreferrer">Message me on Line</a>
+                    <a href="https://instagram.com/anton_in_asia" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://facebook.com/Anton.skapik" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Facebook</a>
+                </div>
+            </section>
+
+            <!-- 2. About / vibe -->
+            <section id="vibe">
+                <h2>The Vibe</h2>
+                <p>Thailand has been my home for 5 years now, and I really feel like I belong here. I'm generally quiet at first, but social once we start talking. I prefer a real connection and a long conversation over a noisy, crowded place.</p>
+                <p>I value people who are natural and easy to talk with—and people who call me when they actually want to do something or need a hand, not only when they want to drink.</p>
+                <p>I'm open to meeting local Thai friends, fellow riders, and dating. If you like quiet plans and getting out into nature, we'll probably get along just fine.</p>
+            </section>
+
+            <!-- 3. What I'm into -->
+            <section id="interests">
+                <h2>What I'm Into</h2>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Motorcycles</h3>
+                        <p>I ride a Kawasaki Versys X300 and a V-Strom 650 XT—reliable adventure makers. Nothing beats the feeling of the road up north.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Nature & Camping</h3>
+                        <p>Mountains, waterfalls, lakes, and jungle viewpoints. My ideal weekend is riding out to Chiang Rai and camping next to a river.</p>
+                    </div>
+                    <div class="card">
+                        <h3>Quiet Drinks & Coffee</h3>
+                        <p>Simple plans are the best plans. Good coffee during the day, or a quiet drink at night (maybe with a little SangSom soda to keep things playful).</p>
+                    </div>
+                    <div class="card">
+                        <h3>Language Learning</h3>
+                        <p>I try to learn the local language wherever I live because it opens doors and connects people. It's a work in progress.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. North Thailand / exploring -->
+            <section id="exploring">
+                <h2>Exploring the North</h2>
+                <p>I've visited all the provinces in Thailand, but the north is where I spend my time. I move around a lot—you can usually find me somewhere between Mae Hong Son, Uttaradit, Chiang Rai, and Chiang Mai.</p>
+                <p>I'm always up for small-group trips or spontaneous road trips. If you have a free weekend and a good destination in mind, let me know.</p>
+            </section>
+
+            <!-- 5. Language / don't be shy -->
+            <section id="language">
+                <h2>Language (Don't be shy)</h2>
+                <p>I speak a little Thai, though I can't read it just yet. I really want to learn more! But for deep conversations, I prefer English.</p>
+                <p>English is actually my third language, so I completely understand how difficult it can feel to speak a foreign language. Please don't be scared to message me, even if your English is simple. We can figure it out together.</p>
+                <span class="thai-text">ทักมาเป็นภาษาอังกฤษง่ายๆ ได้นะ (You can message me in simple English)</span>
+
+                <p>I've made plenty of funny mistakes in Thai myself—like confidently saying the wrong thing when trying to compliment someone or say cheers. It happens to the best of us!</p>
+                <span class="thai-text">ผมก็กำลังเรียนภาษาไทยอยู่เหมือนกัน (I'm still learning Thai too)</span>
+
+                <p>Just talk naturally, don't worry about perfect grammar.</p>
+                <span class="thai-text">ไม่ต้องเกรงใจ (Don't be shy)</span>
+            </section>
+
+            <!-- 6. Contact / make a plan -->
+            <section id="contact">
+                <h2>Let's Make a Plan</h2>
+                <p>Up for a ride, a day trip, language exchange, or just grabbing a coffee? Message me.</p>
+                <span class="thai-text">มาวางแผนเที่ยวกันเถอะ (Let's make a plan)</span>
+
+                <div class="contact-box">
+                    <h3>Line: anton_svk</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem;">This is the best way to reach me.</p>
+                    <img src="line_qr.jpg" alt="Anton's Line QR Code" class="qr-code">
+                    <a href="https://line.me/ti/p/~anton_svk" class="btn" target="_blank" rel="noopener noreferrer" style="margin-top: 15px;">Message on Line</a>
+
+                    <div class="social-links">
+                        <a href="https://instagram.com/anton_in_asia" target="_blank" rel="noopener noreferrer">Instagram: @anton_in_asia</a>
+                        <a href="https://facebook.com/Anton.skapik" target="_blank" rel="noopener noreferrer">Facebook: Anton.skapik</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        // Light/Dark mode toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check for saved user preference
+        const savedTheme = localStorage.getItem('journey-theme');
+        if (savedTheme) {
+            htmlElement.setAttribute('data-theme', savedTheme);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('journey-theme', newTheme);
+        });
+    </script>
+</body>
+</html>
