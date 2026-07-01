@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anton Škápik | Principal Cloud System Engineer</title>
+    <meta name="description" content="Principal Cloud System Engineer building reliable Linux and cloud infrastructure.">
+    <style>
+        :root {
+            /* Light theme variables */
+            --bg-color: #ffffff;
+            --text-color: #333333;
+            --text-muted: #666666;
+            --accent-color: #0056b3;
+            --border-color: #e0e0e0;
+            --section-bg: #f9f9f9;
+        }
+
+        [data-theme="dark"] {
+            /* Dark theme variables */
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --accent-color: #66b3ff;
+            --border-color: #333333;
+            --section-bg: #1e1e1e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+
+        #theme-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+
+        #theme-toggle:hover {
+            background-color: var(--section-bg);
+        }
+
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 1rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: 4px;
+            color: var(--accent-color);
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+        }
+
+        .button-primary {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .button-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        /* Hero */
+        .hero-summary {
+            font-size: 1.2rem;
+            color: var(--text-color);
+            max-width: 700px;
+        }
+
+        /* Tech Stack */
+        .stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .stack-category {
+            background-color: var(--section-bg);
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .stack-category p {
+            margin-bottom: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* Experience */
+        .experience-item {
+            margin-bottom: 40px;
+        }
+
+        .experience-header {
+            margin-bottom: 10px;
+        }
+
+        .experience-header h4 {
+            margin-bottom: 2px;
+        }
+
+        .experience-title {
+            display: block;
+            font-weight: 500;
+            color: var(--text-color);
+        }
+
+        .experience-date {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Education & Certs */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .cert-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .cert-list li::before {
+            content: "✓ ";
+            color: var(--accent-color);
+        }
+
+        .education-item, .languages-section {
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .page-footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .grid-2col {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .section {
+                padding: 40px 0;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <button id="theme-toggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span> Dark Mode
+        </button>
+    </header>
+
+    <main class="container">
+        <!-- 1. Hero -->
+        <section id="hero" class="section hero-section">
+            <h1>Anton Škápik</h1>
+            <h2>Principal Cloud System Engineer</h2>
+            <p class="hero-summary">
+                Principal Cloud System Engineer building reliable Linux and cloud infrastructure. With over 8 years of experience, I focus on Kubernetes, OCI, Terraform, automation, observability, and remote collaboration to deliver operational clarity.
+            </p>
+            <div class="cta-group">
+                <a href="mailto:anton.skapik@example.com" class="button button-primary">Email Me</a>
+                <a href="https://linkedin.com/in/anton-skapik" target="_blank" rel="noopener noreferrer" class="button">LinkedIn</a>
+                <a href="cv.pdf" download class="button">Download CV</a>
+            </div>
+        </section>
+
+        <!-- 2. Professional summary -->
+        <section id="summary" class="section summary-section">
+            <h3>Professional Summary</h3>
+            <p>
+                I am a hands-on Unix/Linux and cloud infrastructure engineer with over 8 years of experience in cloud infrastructure, automation, observability, and DevOps practices. Strongest in Linux-heavy production environments, I work across reliability, automation, CI/CD, monitoring, incident response, and infrastructure improvement. My recent focus is on Kubernetes, OCI, Terraform, and container orchestration, approached with a strong backend and programming mindset.
+            </p>
+        </section>
+
+        <!-- 3. Selected achievements -->
+        <section id="achievements" class="section achievements-section">
+            <h3>Selected Achievements</h3>
+            <ul class="achievement-list">
+                <li>Helped drive Kubernetes and OCI container orchestration adoption, significantly improving deployment speed and reliability.</li>
+                <li>Designed monitoring and alerting systems for critical infrastructure, improving SLA compliance and reducing incident response time.</li>
+                <li>Led the automation of provisioning, CI/CD, and alerting workflows, cutting manual work by over 50%.</li>
+            </ul>
+        </section>
+
+        <!-- 4. Tech stack grouped by category -->
+        <section id="tech-stack" class="section tech-stack-section">
+            <h3>Technical Strengths</h3>
+            <div class="stack-grid">
+                <div class="stack-category">
+                    <h4>Infrastructure & Cloud</h4>
+                    <p>Linux systems engineering, OCI Container Engine for Kubernetes, Docker</p>
+                </div>
+                <div class="stack-category">
+                    <h4>Automation & CI/CD</h4>
+                    <p>Terraform, SaltStack, Ansible, GitLab CI/CD, Jenkins, Bamboo</p>
+                </div>
+                <div class="stack-category">
+                    <h4>Observability</h4>
+                    <p>Prometheus, Grafana, Nagios, Icinga, ELK stack</p>
+                </div>
+                <div class="stack-category">
+                    <h4>Programming & Data</h4>
+                    <p>Bash, Perl, Go, Python (light), Oracle DB, PostgreSQL</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Experience timeline -->
+        <section id="experience" class="section experience-section">
+            <h3>Experience</h3>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Oracle NetSuite</h4>
+                    <span class="experience-title">Principal Cloud System Engineer</span>
+                    <span class="experience-date">Sep 2022 – Present</span>
+                </div>
+                <ul>
+                    <li>Lead SRE responsibilities for high-performance Unix/Linux environments across global data centers.</li>
+                    <li>Implemented and maintained Kubernetes clusters using OCI Container Engine.</li>
+                    <li>Automated infrastructure lifecycle using Terraform, SaltStack, and GitLab CI/CD.</li>
+                    <li>Collaborated with developers to improve deployment pipelines and system observability.</li>
+                    <li>Performed incident response, root cause analysis, and capacity planning.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Oracle NetSuite</h4>
+                    <span class="experience-title">Cloud Systems Engineer</span>
+                    <span class="experience-date">Apr 2019 – Sep 2022</span>
+                </div>
+                <ul>
+                    <li>Maintained and automated Linux and BSD-based systems in production environments.</li>
+                    <li>Built custom monitoring plugins and improved alerting logic across on-prem and cloud workloads.</li>
+                    <li>Integrated Prometheus/Grafana dashboards and centralized logging with ELK.</li>
+                    <li>Supported internal platform tools and automation systems.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-header">
+                    <h4>Progress Flowmon</h4>
+                    <span class="experience-title">Backend Developer</span>
+                    <span class="experience-date">Apr 2016 – Feb 2019</span>
+                </div>
+                <ul>
+                    <li>Developed network security tools in C and Perl for Linux-based appliances.</li>
+                    <li>Built and maintained virtualized testing environments with VMware and VyOS.</li>
+                    <li>Participated in 3rd-level support and performance tuning in large ISP deployments.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 6. Certifications and education -->
+        <section id="education" class="section education-section">
+            <div class="grid-2col">
+                <div>
+                    <h3>Certifications</h3>
+                    <ul class="cert-list">
+                        <li>OCI Container Engine for Kubernetes Specialist (2024)</li>
+                        <li>Oracle Linux System Administrator in OCI (2024)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Education</h3>
+                    <div class="education-item">
+                        <h4>Brno University of Technology</h4>
+                        <p>Bachelor in Information Technology</p>
+                    </div>
+                    <div class="languages-section">
+                        <h4>Languages</h4>
+                        <p>Slovak/Czech (native), English (C1), Russian (A1), German (A2), Thai (A1)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Contact / call to action -->
+        <section id="contact" class="section contact-section">
+            <h3>Let's Connect</h3>
+            <p>I am always open to discussing new opportunities, especially remote-first roles focused on cloud systems and reliability engineering.</p>
+            <div class="cta-group">
+                <a href="mailto:anton.skapik@example.com" class="button button-primary">Send me an email</a>
+                <a href="https://linkedin.com/in/anton-skapik" target="_blank" rel="noopener noreferrer" class="button">Connect on LinkedIn</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="page-footer">
+        <div class="container">
+            <p>&copy; 2024 Anton Škápik. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = themeToggleBtn.querySelector('.theme-icon');
+            const htmlElement = document.documentElement;
+
+            // Check for saved theme preference or use system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme) {
+                htmlElement.setAttribute('data-theme', savedTheme);
+                updateButtonState(savedTheme);
+            } else if (systemPrefersDark) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                updateButtonState('dark');
+            }
+
+            themeToggleBtn.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateButtonState(newTheme);
+            });
+
+            function updateButtonState(theme) {
+                if (theme === 'dark') {
+                    themeIcon.textContent = '☀️';
+                    // Update text node specifically, avoiding the span element
+                    themeToggleBtn.lastChild.textContent = ' Light Mode';
+                } else {
+                    themeIcon.textContent = '🌙';
+                    themeToggleBtn.lastChild.textContent = ' Dark Mode';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
