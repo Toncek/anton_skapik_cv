@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Allow: /apps/
+Disallow: /journey/
+Disallow: /tests/
+Disallow: /docs/
+
+Sitemap: https://toncek.github.io/anton_skapik_cv/sitemap.xml

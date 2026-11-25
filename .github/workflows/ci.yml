@@ -1,0 +1,147 @@
+name: Static Site & Privacy Boundary CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verify-static-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verify required files, privacy boundaries, and local image paths
+        run: |
+          python3 - <<'PY'
+          import html.parser
+          import pathlib
+          import re
+          import sys
+          import xml.etree.ElementTree as ET
+
+          root = pathlib.Path(".").resolve()
+          errors = []
+
+          # 1. Required deliverables and non-empty checks
+          required_files = [
+              "index.html",
+              "apps/index.html",
+              "journey/index.html",
+              "journey/stickers/index.html",
+              "journey/stickers/sticker-01-tatras-to-thailand.png",
+              "journey/stickers/sticker-02-northern-loop-stamp.png",
+              "journey/stickers/sticker-03-night-pannier-shield.png",
+              "journey/stickers/sticker-04-tea-ridge-handout.png",
+              "journey/stickers/sticker-05-real-road-polaroid.png",
+              "cv.pdf",
+              "robots.txt",
+              "sitemap.xml",
+              "favicon.svg",
+              ".nojekyll",
+          ]
+          for rel in required_files:
+              p = root / rel
+              if not p.is_file():
+                  errors.append(f"Missing required file: {rel}")
+              elif rel != ".nojekyll" and p.stat().st_size == 0:
+                  errors.append(f"Required file is empty: {rel}")
+
+          cv_pdf = root / "cv.pdf"
+          if cv_pdf.is_file() and cv_pdf.stat().st_size < 1024:
+              errors.append(f"cv.pdf unexpectedly small ({cv_pdf.stat().st_size} bytes)")
+
+          # 2. robots.txt must disallow /journey/
+          robots = root / "robots.txt"
+          if robots.is_file():
+              robots_text = robots.read_text(encoding="utf-8", errors="replace")
+              if not re.search(r"(?im)^\s*Disallow:\s*/journey/\s*$", robots_text):
+                  errors.append("robots.txt must contain 'Disallow: /journey/'")
+
+          # 3. sitemap.xml must be valid XML and exclude /journey/
+          sitemap = root / "sitemap.xml"
+          if sitemap.is_file():
+              try:
+                  tree = ET.parse(sitemap)
+                  locs = [
+                      el.text.strip()
+                      for el in tree.iter()
+                      if el.tag.endswith("loc") and el.text
+                  ]
+                  if any("journey" in loc.lower() for loc in locs):
+                      errors.append("sitemap.xml must not include /journey/")
+                  if not locs:
+                      errors.append("sitemap.xml contains no <loc> entries")
+              except ET.ParseError as exc:
+                  errors.append(f"Invalid XML in sitemap.xml: {exc}")
+
+          # 4. journey pages must declare noindex
+          for unlisted_rel in ("journey/index.html", "journey/stickers/index.html"):
+              unlisted_html = root / unlisted_rel
+              if unlisted_html.is_file():
+                  ut = unlisted_html.read_text(encoding="utf-8", errors="replace")
+                  if not re.search(
+                      r'<meta[^>]+name=["\']robots["\'][^>]+content=["\'][^"\']*noindex',
+                      ut,
+                      re.IGNORECASE,
+                  ):
+                      errors.append(f"{unlisted_rel} must contain <meta name='robots' content='noindex...'>")
+
+          class PageParser(html.parser.HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.imgs = []
+                  self.links = []
+
+              def handle_starttag(self, tag, attrs):
+                  attr_map = dict(attrs)
+                  if tag == "img" and "src" in attr_map:
+                      self.imgs.append(attr_map["src"])
+                  if tag in ("a", "link") and "href" in attr_map:
+                      self.links.append(attr_map["href"])
+
+          def resolve_local(page_path: pathlib.Path, ref: str) -> pathlib.Path | None:
+              clean = ref.split("#", 1)[0].split("?", 1)[0].strip()
+              if not clean or clean.startswith(("http://", "https://", "data:", "mailto:", "tel:")):
+                  return None
+              if clean.startswith("/anton_skapik_cv/"):
+                  clean = clean[len("/anton_skapik_cv/"):]
+              elif clean.startswith("/"):
+                  clean = clean.lstrip("/")
+              else:
+                  return (page_path.parent / clean).resolve()
+              return (root / clean).resolve()
+
+          # 5. Public pages must never link to journey or stickers; all local <img> tags must resolve
+          for rel in ("index.html", "apps/index.html", "journey/index.html", "journey/stickers/index.html"):
+              page = root / rel
+              if not page.is_file():
+                  continue
+              parser = PageParser()
+              parser.feed(page.read_text(encoding="utf-8", errors="replace"))
+
+              if rel in ("index.html", "apps/index.html"):
+                  for href in parser.links:
+                      if "journey" in href.lower() or "stickers" in href.lower():
+                          errors.append(f"Public page {rel} links to private route: {href}")
+
+              for src in parser.imgs:
+                  target = resolve_local(page, src)
+                  if target is not None and not target.is_file():
+                      errors.append(f"Broken local <img src='{src}'> in {rel} -> {target}")
+
+          if errors:
+              print("CI verification failed:")
+              for err in errors:
+                  print(f" - {err}")
+              sys.exit(1)
+
+          print("All static site, asset, and privacy-boundary checks passed.")
+          PY

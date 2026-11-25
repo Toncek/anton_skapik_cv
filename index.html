@@ -3,27 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anton Škápik | Backend & Monitoring Engineer</title>
-    <meta name="description" content="Backend and Monitoring Engineer specializing in building robust applications and comprehensive observability systems.">
+    <title>Anton Škápik | Senior Backend, Infrastructure &amp; Observability Engineer</title>
+    <meta name="description" content="Senior Backend, Infrastructure &amp; Observability Engineer with 8+ years building scalable cloud platforms, Prometheus/Grafana telemetry pipelines, and shipped mobile/AI systems.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="canonical" href="https://toncek.github.io/anton_skapik_cv/">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Anton Škápik | Senior Backend, Infrastructure &amp; Observability Engineer">
+    <meta property="og:description" content="8+ years engineering high-reliability cloud infrastructure, observability pipelines, backend services, and applied mobile/AI systems.">
+    <meta property="og:url" content="https://toncek.github.io/anton_skapik_cv/">
+    <meta property="og:site_name" content="Anton Škápik — Engineering CV">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Anton Škápik | Senior Backend, Infrastructure &amp; Observability Engineer">
+    <meta name="twitter:description" content="Senior Backend, Infrastructure &amp; Observability Engineer building resilient cloud systems, telemetry pipelines, and independent apps.">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Anton Škápik",
+      "jobTitle": "Senior Backend, Infrastructure & Observability Engineer",
+      "url": "https://toncek.github.io/anton_skapik_cv/",
+      "email": "mailto:Anton.skapik@gmail.com",
+      "sameAs": [
+        "https://github.com/Toncek",
+        "https://linkedin.com/in/anton-skapik"
+      ],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Brno University of Technology"
+      },
+      "knowsAbout": [
+        "Backend Engineering",
+        "Observability",
+        "Site Reliability Engineering",
+        "Kubernetes",
+        "Prometheus",
+        "Grafana",
+        "Terraform",
+        "Linux",
+        "Go",
+        "Python",
+        "Kotlin",
+        "Flutter"
+      ]
+    }
+    </script>
+
     <style>
         :root {
-            /* Light theme variables */
             --bg-color: #ffffff;
-            --text-color: #333333;
-            --text-muted: #666666;
+            --text-color: #1f2937;
+            --text-muted: #556070;
             --accent-color: #0056b3;
-            --border-color: #e0e0e0;
-            --section-bg: #f9f9f9;
+            --accent-hover: #00418a;
+            --accent-soft: rgba(0, 86, 179, 0.08);
+            --border-color: #e2e8f0;
+            --section-bg: #f8fafc;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --pill-bg: #ecfdf5;
+            --pill-border: #a7f3d0;
+            --pill-text: #065f46;
+            --dot-color: #10b981;
+            --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
         }
 
         [data-theme="dark"] {
-            /* Dark theme variables */
-            --bg-color: #121212;
-            --text-color: #e0e0e0;
-            --text-muted: #a0a0a0;
+            --bg-color: #0f1419;
+            --text-color: #e6edf3;
+            --text-muted: #9aa7b6;
             --accent-color: #66b3ff;
-            --border-color: #333333;
-            --section-bg: #1e1e1e;
+            --accent-hover: #8cc7ff;
+            --accent-soft: rgba(102, 179, 255, 0.12);
+            --border-color: #263140;
+            --section-bg: #171f29;
+            --header-bg: rgba(15, 20, 25, 0.9);
+            --pill-bg: rgba(16, 185, 129, 0.12);
+            --pill-border: rgba(52, 211, 153, 0.35);
+            --pill-text: #6ee7b7;
+            --dot-color: #34d399;
+            --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.28);
         }
 
         * {
@@ -32,80 +94,198 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.25s ease, color 0.25s ease;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 920px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
+        /* Sticky Header Nav */
         .page-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-inner {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 12px 20px;
             display: flex;
-            justify-content: flex-end;
-            padding: 20px;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .brand-link {
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--text-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+
+        .brand-link:hover {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .brand-mark {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 26px;
+            height: 26px;
+            border-radius: 6px;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            text-decoration: none;
         }
 
         #theme-toggle {
-            background: none;
+            background: var(--section-bg);
             border: 1px solid var(--border-color);
             color: var(--text-color);
-            padding: 8px 12px;
+            padding: 6px 11px;
             cursor: pointer;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            display: flex;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            display: inline-flex;
             align-items: center;
-            gap: 8px;
-            transition: background-color 0.2s;
+            gap: 6px;
+            transition: background-color 0.2s, border-color 0.2s;
         }
 
         #theme-toggle:hover {
-            background-color: var(--section-bg);
+            border-color: var(--accent-color);
         }
 
+        .theme-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 0;
+        }
+
+        /* Sections */
         .section {
-            padding: 60px 0;
+            padding: 48px 0;
             border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 68px;
         }
 
         .section:last-child {
             border-bottom: none;
         }
 
+        .availability-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background-color: var(--pill-bg);
+            border: 1px solid var(--pill-border);
+            color: var(--pill-text);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .availability-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: var(--dot-color);
+            flex-shrink: 0;
+        }
+
         h1 {
             font-size: 2.5rem;
-            margin-bottom: 0.5rem;
+            line-height: 1.15;
+            margin-bottom: 0.45rem;
             color: var(--text-color);
+            letter-spacing: -0.02em;
         }
 
         h2 {
-            font-size: 1.5rem;
-            font-weight: 500;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 1.1rem;
         }
 
         h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.25rem;
             color: var(--text-color);
+            letter-spacing: -0.01em;
         }
 
         h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+            margin-bottom: 0.45rem;
             color: var(--text-color);
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 0.95rem;
         }
 
         ul {
@@ -114,7 +294,7 @@
         }
 
         li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.45rem;
         }
 
         a {
@@ -129,86 +309,214 @@
         /* Buttons */
         .cta-group {
             display: flex;
-            gap: 15px;
-            margin-top: 2rem;
+            gap: 10px;
+            margin-top: 1.6rem;
             flex-wrap: wrap;
         }
 
         .button {
-            display: inline-block;
-            padding: 10px 20px;
-            border: 1px solid var(--accent-color);
-            border-radius: 4px;
-            color: var(--accent-color);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 16px;
+            border: 1px solid var(--border-color);
+            background-color: var(--section-bg);
+            border-radius: 6px;
+            color: var(--text-color);
+            font-size: 0.92rem;
+            font-weight: 600;
             text-align: center;
             transition: all 0.2s ease;
         }
 
         .button:hover {
-            background-color: var(--accent-color);
-            color: var(--bg-color);
+            border-color: var(--accent-color);
+            color: var(--accent-color);
             text-decoration: none;
         }
 
         .button-primary {
             background-color: var(--accent-color);
-            color: var(--bg-color);
+            border-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .button-primary {
+            color: #0f1419;
         }
 
         .button-primary:hover {
-            background-color: transparent;
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .button-primary:hover {
+            color: #0f1419;
+        }
+
+        .button-accent {
+            border-color: var(--accent-color);
             color: var(--accent-color);
+            background-color: var(--accent-soft);
+        }
+
+        .button-accent:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .button-accent:hover {
+            color: #0f1419;
         }
 
         /* Hero */
+        .hero-section {
+            padding-top: 44px;
+        }
+
         .hero-summary {
-            font-size: 1.2rem;
-            color: var(--text-color);
-            max-width: 700px;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 740px;
+        }
+
+        /* Now & Projects Grids */
+        .cards-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+
+        .now-card {
+            background-color: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .now-kicker {
+            display: inline-block;
+            font-size: 0.76rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+        }
+
+        .now-card p {
+            margin-bottom: 0;
+            font-size: 0.94rem;
+            color: var(--text-muted);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background-color: var(--section-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .project-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            object-fit: cover;
+            object-position: center 20%;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+        }
+
+        .project-body h4 {
+            margin-bottom: 2px;
+        }
+
+        .project-stack {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 6px;
+        }
+
+        .project-body p {
+            margin-bottom: 0;
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .projects-cta {
+            margin-top: 20px;
         }
 
         /* Tech Stack */
         .stack-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+            gap: 16px;
         }
 
         .stack-category {
             background-color: var(--section-bg);
-            padding: 20px;
-            border-radius: 6px;
+            padding: 18px 20px;
+            border-radius: 8px;
             border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
         }
 
         .stack-category p {
             margin-bottom: 0;
-            font-size: 0.95rem;
+            font-size: 0.93rem;
             color: var(--text-muted);
         }
 
         /* Experience */
         .experience-item {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
+        }
+
+        .experience-item:last-child {
+            margin-bottom: 0;
         }
 
         .experience-header {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .experience-header h4 {
             margin-bottom: 2px;
+            font-size: 1.12rem;
+        }
+
+        .experience-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
         }
 
         .experience-title {
-            display: block;
-            font-weight: 500;
-            color: var(--text-color);
+            font-weight: 600;
+            color: var(--accent-color);
         }
 
         .experience-date {
-            display: block;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
         }
 
@@ -216,7 +524,7 @@
         .grid-2col {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px;
+            gap: 32px;
         }
 
         .cert-list {
@@ -227,55 +535,167 @@
         .cert-list li::before {
             content: "✓ ";
             color: var(--accent-color);
+            font-weight: 700;
         }
 
         .education-item, .languages-section {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         /* Footer */
         .page-footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 32px 20px;
             color: var(--text-muted);
             border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
+            font-size: 0.88rem;
         }
 
-        /* Responsive */
-        @media (max-width: 600px) {
+        @media (max-width: 680px) {
             .grid-2col {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
             .section {
-                padding: 40px 0;
+                padding: 36px 0;
             }
             h1 {
                 font-size: 2rem;
+            }
+            .nav-links {
+                gap: 10px;
+            }
+            .nav-links a {
+                font-size: 0.84rem;
+            }
+        }
+
+        /* Print A4 CV styles */
+        @page {
+            size: A4;
+            margin: 12mm 14mm;
+        }
+
+        @media print {
+            * {
+                box-shadow: none !important;
+                transition: none !important;
+            }
+            body {
+                background: #ffffff !important;
+                color: #111827 !important;
+                font-size: 10pt;
+                line-height: 1.42;
+            }
+            .page-header,
+            #theme-toggle,
+            .cta-group,
+            .projects-cta,
+            .availability-pill {
+                display: none !important;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .section {
+                padding: 12pt 0;
+                border-bottom: 1px solid #d1d5db;
+            }
+            .hero-section {
+                padding-top: 0;
+            }
+            h1 {
+                font-size: 20pt;
+                color: #111827 !important;
+            }
+            h2 {
+                font-size: 12pt;
+                color: #0056b3 !important;
+                margin-bottom: 6pt;
+            }
+            h3 {
+                font-size: 12pt;
+                margin-bottom: 8pt;
+                color: #111827 !important;
+            }
+            .hero-summary,
+            .now-card p,
+            .project-body p,
+            .stack-category p,
+            .experience-date {
+                color: #374151 !important;
+            }
+            .now-card,
+            .project-card,
+            .stack-category {
+                background: #ffffff !important;
+                border: 1px solid #d1d5db !important;
+                padding: 8pt 10pt;
+                break-inside: avoid;
+            }
+            .experience-item {
+                margin-bottom: 12pt;
+                break-inside: avoid;
+            }
+            .project-thumb {
+                width: 36pt;
+                height: 36pt;
+            }
+            .page-footer {
+                padding: 10pt 0 0;
+                border-top: 1px solid #d1d5db;
+                font-size: 8.5pt;
+            }
+            a {
+                color: #0056b3 !important;
+                text-decoration: none;
             }
         }
     </style>
 </head>
 <body>
     <header class="page-header">
-        <button id="theme-toggle" aria-label="Toggle dark mode">
-            <span class="theme-icon">🌙</span> Dark Mode
-        </button>
+        <div class="header-inner">
+            <a href="#hero" class="brand-link">
+                <span class="brand-mark" aria-hidden="true">AŠ</span>
+                <span>Anton Škápik</span>
+            </a>
+            <nav class="nav-controls" aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="#summary">About</a></li>
+                    <li><a href="#now">Now</a></li>
+                    <li><a href="#projects">Apps</a></li>
+                    <li><a href="#tech-stack">Tech Stack</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" type="button" aria-label="Toggle color theme">
+                    <span class="theme-icon" aria-hidden="true"></span>
+                    <span class="theme-label">Dark</span>
+                </button>
+            </nav>
+        </div>
     </header>
 
     <main class="container">
         <!-- 1. Hero -->
         <section id="hero" class="section hero-section">
+            <div class="availability-pill">
+                <span class="availability-dot" aria-hidden="true"></span>
+                <span>Open to Remote-First Backend, SRE &amp; Observability Opportunities</span>
+            </div>
             <h1>Anton Škápik</h1>
-            <h2>Backend & Monitoring Engineer</h2>
+            <h2>Senior Backend, Infrastructure &amp; Observability Engineer</h2>
             <p class="hero-summary">
-                Backend & Monitoring Engineer building robust applications and comprehensive observability systems. With over 8 years of experience, I focus on software development, performance tuning, and delivering operational clarity through advanced monitoring and alerting solutions.
+                8+ years engineering resilient Linux/cloud platforms, automated Kubernetes infrastructure, and high-signal observability pipelines. I combine deep SRE and backend systems rigor with hands-on product building across Kotlin, Flutter, deterministic NLP, and self-hosted AI workflows.
             </p>
             <div class="cta-group">
                 <a href="mailto:Anton.skapik@gmail.com" class="button button-primary">Email Me</a>
                 <a href="https://linkedin.com/in/anton-skapik" target="_blank" rel="noopener noreferrer" class="button">LinkedIn</a>
-                <a href="cv.pdf" download class="button">Download CV</a>
+                <a href="https://github.com/Toncek" target="_blank" rel="noopener noreferrer" class="button">GitHub</a>
+                <a href="apps/" class="button button-accent">Apps &amp; Beta Lab</a>
+                <a href="cv.pdf" download="Anton_Skapik_CV.pdf" class="button">Download CV (PDF)</a>
             </div>
         </section>
 
@@ -283,64 +703,133 @@
         <section id="summary" class="section summary-section">
             <h3>Professional Summary</h3>
             <p>
-                I am a software engineer focused on backend development and advanced monitoring systems. I excel at building scalable applications, custom monitoring tools, and actionable observability pipelines. I approach infrastructure and operations challenges with a strong programming mindset, utilizing Go, Python, and robust metrics platforms like Prometheus and Grafana. Since Sep 2025, I’ve been on an intentional technical sabbatical focused on applied AI/LLM development, independent product building, teaching, and travel.
+                I am a software and infrastructure engineer focused on backend systems, cloud reliability, and actionable observability. Across roles at Oracle NetSuite and Progress Flowmon, I have built scalable services, custom telemetry exporters, automated infrastructure-as-code pipelines, and SLO-driven alerting platforms using Go, Python, Perl, C, Prometheus, Grafana, and Kubernetes.
+            </p>
+            <p>
+                Since Sep 2025, I have been on an intentional technical sabbatical dedicated to applied multi-agent AI engineering, independent mobile and desktop product delivery, deterministic language tooling, teaching, and travel.
             </p>
         </section>
 
-        <!-- 3. Selected achievements -->
+        <!-- 3. What I Do These Days -->
+        <section id="now" class="section now-section">
+            <h3>What I Do These Days</h3>
+            <div class="cards-grid-3">
+                <article class="now-card">
+                    <span class="now-kicker">Mobile &amp; Systems</span>
+                    <h4>Applied Systems &amp; Mobile Product Engineering</h4>
+                    <p>Shipping offline-first apps with Kotlin, Jetpack Compose, Room, and 100Hz IMU sensor fusion alongside Flutter, Riverpod, Drift, Canvas, strict JSON Schema validation, and GitHub Actions CI.</p>
+                </article>
+                <article class="now-card">
+                    <span class="now-kicker">AI &amp; Local GPU</span>
+                    <h4>Multi-Agent AI Engineering &amp; Self-Hosted GPU Tooling</h4>
+                    <p>Orchestrating Antigravity, Codex, Google Jules, and Cursor over custom MCP servers backed by self-hosted Linux/Vulkan inference running <code>llama.cpp</code> and <code>stable-diffusion.cpp</code>.</p>
+                </article>
+                <article class="now-card">
+                    <span class="now-kicker">NLP &amp; Telemetry</span>
+                    <h4>Deterministic NLP &amp; Real-World Telemetry</h4>
+                    <p>Building a deterministic PyThaiNLP phonological and syllable engine for Thai–Slovak transcription alongside motorcycle IMU telemetry and a customized off-road Android DVR rig.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 4. Selected Independent Applications -->
+        <section id="projects" class="section projects-section">
+            <h3>Selected Independent Applications</h3>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <img src="assets/apps/kurvecounter-icon.webp" alt="KurveCounter app icon" width="256" height="256" loading="lazy" class="project-thumb">
+                    <div class="project-body">
+                        <h4>KurveCounter</h4>
+                        <span class="project-stack">Kotlin · Jetpack Compose · Room · 100Hz IMU</span>
+                        <p>Offline-first motorcycle telemetry and cornering analytics app combining 100Hz IMU fusion, lean-angle capture, and local session replay.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="assets/apps/thajcina-icon.webp" alt="Thajčina app icon" width="256" height="256" loading="lazy" class="project-thumb">
+                    <div class="project-body">
+                        <h4>Thajčina</h4>
+                        <span class="project-stack">Flutter · Riverpod · Drift · PyThaiNLP</span>
+                        <p>Thai learning companion and deterministic Thai–Slovak phonetic transcription engine powered by rule-verified syllable and tone mapping.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="assets/apps/syndicate-icon.webp" alt="The Spaceless Syndicate app icon" width="256" height="256" loading="lazy" class="project-thumb">
+                    <div class="project-body">
+                        <h4>The Spaceless Syndicate</h4>
+                        <span class="project-stack">Flutter · Canvas · JSON Schema · CI</span>
+                        <p>Tactical logistics and orbital syndicate management prototype with deterministic simulation ticks, custom Canvas UI, and schema-checked content.</p>
+                    </div>
+                </article>
+                <article class="project-card">
+                    <img src="assets/apps/icytower-combat.webp" alt="IcyTower: Spire of Rime combat preview" width="480" height="1056" loading="lazy" class="project-thumb">
+                    <div class="project-body">
+                        <h4>IcyTower: Spire of Rime</h4>
+                        <span class="project-stack">Android · Game Loop · Progression Systems</span>
+                        <p>Vertical action-roguelite climbing game featuring rune loadouts, skill builds, staged boss encounters, and responsive touch combat.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="projects-cta">
+                <a href="apps/" class="button button-primary">Explore Full App Previews &amp; Join Beta Testing →</a>
+            </div>
+        </section>
+
+        <!-- 5. Selected achievements -->
         <section id="achievements" class="section achievements-section">
             <h3>Selected Achievements</h3>
             <ul class="achievement-list">
-                <li>Developed comprehensive backend services and integrated custom metrics, significantly improving system visibility and reliability.</li>
-                <li>Designed and implemented advanced monitoring and alerting pipelines, resulting in precise SLA compliance and drastically reduced incident resolution times.</li>
-                <li>Engineered custom software solutions to automate operational workflows and alerting systems, cutting manual intervention by over 50%.</li>
+                <li>Developed comprehensive backend services and integrated custom telemetry exporters, significantly improving production visibility and reliability across global data centers.</li>
+                <li>Designed and implemented SLO-driven monitoring and alerting pipelines, strengthening SLA compliance and drastically reducing incident triage and resolution times.</li>
+                <li>Engineered automated operational tooling and IaC workflows across Linux, Kubernetes, and alerting stacks, cutting manual intervention by over 50%.</li>
             </ul>
         </section>
 
-        <!-- 4. Tech stack grouped by category -->
+        <!-- 6. Tech stack grouped by 5 categories -->
         <section id="tech-stack" class="section tech-stack-section">
             <h3>Technical Strengths</h3>
             <div class="stack-grid">
                 <div class="stack-category">
-                    <h4>AI & Rapid Prototyping</h4>
-                    <p>AI-assisted software development, LLM workflows, Prompt engineering, Agentic development, Multi-agent orchestration, Flutter / Dart</p>
+                    <h4>Observability &amp; Telemetry</h4>
+                    <p>Prometheus, PromQL, Alertmanager, Grafana, OpenTelemetry, Thanos, ELK / OpenSearch, Fluent Bit, Nagios, Icinga, Zabbix, SNMP, NetFlow / IPFIX, SLO/SLA Alerting</p>
                 </div>
                 <div class="stack-category">
-                    <h4>Programming & Data</h4>
-                    <p>Bash, Perl, Go, Python (light), Oracle DB, PostgreSQL</p>
+                    <h4>Backend, Systems &amp; Data</h4>
+                    <p>Go, Python, Bash, Perl, C, Kotlin, Dart, REST APIs, JSON Schema, SQL, Oracle DB, PostgreSQL, SQLite / Room / Drift, Redis</p>
                 </div>
                 <div class="stack-category">
-                    <h4>Observability</h4>
-                    <p>Prometheus, Grafana, Nagios, Icinga, ELK stack</p>
+                    <h4>Cloud, Linux &amp; Infrastructure</h4>
+                    <p>Linux (Oracle Linux, RHEL, Debian), BSD, OCI, OKE / Kubernetes, Helm, Docker, systemd, TCP/IP, VyOS, WireGuard, VMware</p>
                 </div>
                 <div class="stack-category">
-                    <h4>Infrastructure & Cloud</h4>
-                    <p>Linux systems engineering, OCI Container Engine for Kubernetes, Docker</p>
+                    <h4>Automation, IaC &amp; CI/CD</h4>
+                    <p>Terraform, OpenTofu, SaltStack, Ansible, GitLab CI/CD, GitHub Actions, Jenkins, Bamboo, Git, Gradle</p>
                 </div>
                 <div class="stack-category">
-                    <h4>Automation & CI/CD</h4>
-                    <p>Terraform, SaltStack, Ansible, GitLab CI/CD, Jenkins, Bamboo</p>
+                    <h4>AI Workflows &amp; Product Engineering</h4>
+                    <p>Antigravity, Codex, Google Jules, Cursor, MCP, Local GPU Inference (llama.cpp / Vulkan), Jetpack Compose, Flutter / Riverpod, Playwright E2E</p>
                 </div>
             </div>
         </section>
 
-        <!-- 5. Experience timeline -->
+        <!-- 7. Experience timeline -->
         <section id="experience" class="section experience-section">
             <h3>Experience</h3>
 
             <div class="experience-item">
                 <div class="experience-header">
                     <h4>Independent</h4>
-                    <span class="experience-title">Technical Sabbatical — Applied AI & Independent Development</span>
-                    <span class="experience-date">Sep 2025 – Present</span>
+                    <div class="experience-meta">
+                        <span class="experience-title">Technical Sabbatical — Applied AI &amp; Independent Product Engineering</span>
+                        <span class="experience-date">Sep 2025 – Present</span>
+                    </div>
                 </div>
-                <p>Intentional career break focused on family, travel, teaching, and hands-on AI/LLM development, while continuing to build and ship practical software projects.</p>
+                <p>Intentional career sabbatical focused on shipping independent mobile and systems software, self-hosted AI infrastructure, teaching, and family travel.</p>
                 <ul>
-                    <li>Built Flutter-based Android applications, including a Thai learning app and a Thai–Slovak phonetic transcription tool.</li>
-                    <li>Explored practical AI/LLM workflows for software development, rapid prototyping, and personal productivity.</li>
-                    <li>Worked with agentic coding tools including Cursor, Antigravity, and Jules, and learned how to orchestrate multi-step AI-assisted development.</li>
-                    <li>Set up and used a private self-hosted server for orchestrating agent-based development workflows.</li>
-                    <li>Heavily customized an Android DVR/off-road system for enduro riding use cases.</li>
+                    <li>Architected and shipped multiple independent applications — <strong>KurveCounter</strong> (Kotlin, Jetpack Compose, Room, 100Hz IMU telemetry), <strong>Thajčina</strong> (Flutter, Riverpod, Drift), <strong>The Spaceless Syndicate</strong>, and <strong>IcyTower: Spire of Rime</strong> — backed by strict JSON Schema validation and GitHub Actions CI.</li>
+                    <li>Built a deterministic Thai–Slovak phonological and syllable transcription engine using PyThaiNLP for repeatable phonetic mapping.</li>
+                    <li>Orchestrated multi-agent software engineering workflows across Antigravity, Codex, Google Jules, and Cursor, integrating custom MCP servers and Playwright E2E verification.</li>
+                    <li>Deployed self-hosted Linux/Vulkan GPU inference tooling running <code>llama.cpp</code> and <code>stable-diffusion.cpp</code> for local coding, QA, and asset pipelines.</li>
+                    <li>Heavily customized an Android DVR and telemetry setup for off-road enduro motorcycle riding.</li>
                     <li>Spent time teaching in Thailand, volunteering at a school in Vietnam, and traveling with family.</li>
                 </ul>
             </div>
@@ -348,12 +837,14 @@
             <div class="experience-item">
                 <div class="experience-header">
                     <h4>Oracle NetSuite</h4>
-                    <span class="experience-title">Principal Cloud System Engineer</span>
-                    <span class="experience-date">Sep 2022 – Sep 2025</span>
+                    <div class="experience-meta">
+                        <span class="experience-title">Principal Cloud System Engineer</span>
+                        <span class="experience-date">Sep 2022 – Sep 2025</span>
+                    </div>
                 </div>
                 <ul>
-                    <li>Lead SRE responsibilities for high-performance Unix/Linux environments across global data centers.</li>
-                    <li>Implemented and maintained Kubernetes clusters using OCI Container Engine.</li>
+                    <li>Led SRE responsibilities for high-performance Unix/Linux environments across global data centers.</li>
+                    <li>Implemented and maintained Kubernetes clusters using OCI Container Engine for Kubernetes (OKE).</li>
                     <li>Automated infrastructure lifecycle using Terraform, SaltStack, and GitLab CI/CD.</li>
                     <li>Developed and integrated advanced monitoring capabilities and backend services for cloud-scale environments.</li>
                     <li>Created software tools and automation scripts to manage application lifecycles and streamline deployments.</li>
@@ -365,8 +856,10 @@
             <div class="experience-item">
                 <div class="experience-header">
                     <h4>Oracle NetSuite</h4>
-                    <span class="experience-title">Cloud Systems Engineer</span>
-                    <span class="experience-date">Apr 2019 – Sep 2022</span>
+                    <div class="experience-meta">
+                        <span class="experience-title">Cloud Systems Engineer</span>
+                        <span class="experience-date">Apr 2019 – Sep 2022</span>
+                    </div>
                 </div>
                 <ul>
                     <li>Maintained and automated Linux and BSD-based systems in production environments.</li>
@@ -379,8 +872,10 @@
             <div class="experience-item">
                 <div class="experience-header">
                     <h4>Progress Flowmon</h4>
-                    <span class="experience-title">Backend Developer</span>
-                    <span class="experience-date">Apr 2016 – Feb 2019</span>
+                    <div class="experience-meta">
+                        <span class="experience-title">Backend Developer</span>
+                        <span class="experience-date">Apr 2016 – Feb 2019</span>
+                    </div>
                 </div>
                 <ul>
                     <li>Developed network security tools in C and Perl for Linux-based appliances.</li>
@@ -390,7 +885,7 @@
             </div>
         </section>
 
-        <!-- 6. Certifications and education -->
+        <!-- 8. Certifications and education -->
         <section id="education" class="section education-section">
             <div class="grid-2col">
                 <div>
@@ -408,26 +903,29 @@
                     </div>
                     <div class="languages-section">
                         <h4>Languages</h4>
-                        <p>Slovak/Czech (native), English (C1), Russian (A1), German (A2), Thai (A1)</p>
+                        <p>Slovak/Czech (native), English (C1), German (A2), Russian (A1), Thai (A1)</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 7. Contact / call to action -->
+        <!-- 9. Contact / call to action -->
         <section id="contact" class="section contact-section">
             <h3>Let's Connect</h3>
-            <p>I am always open to discussing new opportunities, especially remote-first roles focused on backend development, monitoring, and observability.</p>
+            <p>I am open to remote-first engineering roles focused on backend systems, SRE, cloud infrastructure, observability, and applied AI tooling.</p>
             <div class="cta-group">
-                <a href="mailto:Anton.skapik@gmail.com" class="button button-primary">Send me an email</a>
-                <a href="https://linkedin.com/in/anton-skapik" target="_blank" rel="noopener noreferrer" class="button">Connect on LinkedIn</a>
+                <a href="mailto:Anton.skapik@gmail.com" class="button button-primary">Email Me</a>
+                <a href="https://linkedin.com/in/anton-skapik" target="_blank" rel="noopener noreferrer" class="button">LinkedIn</a>
+                <a href="https://github.com/Toncek" target="_blank" rel="noopener noreferrer" class="button">GitHub</a>
+                <a href="apps/" class="button button-accent">Apps &amp; Beta Lab</a>
+                <a href="cv.pdf" download="Anton_Skapik_CV.pdf" class="button">Download CV (PDF)</a>
             </div>
         </section>
     </main>
 
     <footer class="page-footer">
         <div class="container">
-            <p>&copy; 2024 Anton Škápik. All rights reserved.</p>
+            <p>&copy; 2026 Anton Škápik. All rights reserved.</p>
         </div>
     </footer>
 
@@ -435,39 +933,35 @@
         document.addEventListener('DOMContentLoaded', () => {
             const themeToggleBtn = document.getElementById('theme-toggle');
             const themeIcon = themeToggleBtn.querySelector('.theme-icon');
+            const themeLabel = themeToggleBtn.querySelector('.theme-label');
             const htmlElement = document.documentElement;
 
-            // Check for saved theme preference or use system preference
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const MOON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            const SUN_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
 
-            if (savedTheme) {
-                htmlElement.setAttribute('data-theme', savedTheme);
-                updateButtonState(savedTheme);
-            } else if (systemPrefersDark) {
-                htmlElement.setAttribute('data-theme', 'dark');
-                updateButtonState('dark');
+            function applyTheme(theme) {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    themeIcon.innerHTML = SUN_SVG;
+                    themeLabel.textContent = 'Light';
+                    themeToggleBtn.setAttribute('aria-label', 'Switch to light mode');
+                } else {
+                    themeIcon.innerHTML = MOON_SVG;
+                    themeLabel.textContent = 'Dark';
+                    themeToggleBtn.setAttribute('aria-label', 'Switch to dark mode');
+                }
             }
+
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
 
             themeToggleBtn.addEventListener('click', () => {
                 const currentTheme = htmlElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                htmlElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('theme', newTheme);
-                updateButtonState(newTheme);
+                applyTheme(newTheme);
             });
-
-            function updateButtonState(theme) {
-                if (theme === 'dark') {
-                    themeIcon.textContent = '☀️';
-                    // Update text node specifically, avoiding the span element
-                    themeToggleBtn.lastChild.textContent = ' Light Mode';
-                } else {
-                    themeIcon.textContent = '🌙';
-                    themeToggleBtn.lastChild.textContent = ' Dark Mode';
-                }
-            }
         });
     </script>
 </body>

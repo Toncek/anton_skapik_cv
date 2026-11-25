@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow, noarchive">
+    <title>Road Sticker Pack &amp; QR Previews | Anton</title>
+    <meta name="description" content="Print-ready die-cut vinyl road stickers with scannable QR codes linking to Anton's North Thailand page.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23c85212'/%3E%3Cpath d='M10 48 L26 22 L36 36 L44 26 L54 48 Z' fill='%23fdfbf7'/%3E%3Ccircle cx='46' cy='17' r='5' fill='%23fdfbf7'/%3E%3C/svg%3E">
+    <style>
+        :root {
+            --bg-color: #fdfbf7;
+            --text-color: #161514;
+            --text-muted: #5d5650;
+            --accent-color: #c85212;
+            --accent-hover: #a7420d;
+            --accent-soft: rgba(200, 82, 18, 0.1);
+            --card-bg: #ffffff;
+            --border-color: #e7dfd3;
+            --shadow-sm: 0 2px 10px rgba(22, 21, 20, 0.06);
+            --stage-bg: #f6f4ef;
+            --stage-pattern: none;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #161514;
+            --text-color: #f4efe8;
+            --text-muted: #b1a89f;
+            --accent-color: #e87a35;
+            --accent-hover: #f29152;
+            --accent-soft: rgba(232, 122, 53, 0.14);
+            --card-bg: #201e1c;
+            --border-color: #34302c;
+            --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Backdrop surface presets */
+        [data-surface="white"] {
+            --stage-bg: #f4f2ee;
+            --stage-pattern: radial-gradient(circle at 20% 20%, #ffffff 0%, #ebe7df 100%);
+        }
+        [data-surface="black-pannier"] {
+            --stage-bg: #17191c;
+            --stage-pattern: linear-gradient(135deg, #1d2024 0%, #111315 55%, #1c1f24 100%);
+        }
+        [data-surface="silver-topbox"] {
+            --stage-bg: #b9c1c9;
+            --stage-pattern: linear-gradient(135deg, #d7dde3 0%, #9fa9b3 50%, #cfd6dc 100%);
+        }
+        [data-surface="kraft"] {
+            --stage-bg: #c69f72;
+            --stage-pattern: linear-gradient(135deg, #cfa97c 0%, #b88e60 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: background-color 0.25s ease, color 0.25s ease;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .top-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 18px 0;
+            flex-wrap: wrap;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-weight: 600;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            color: var(--text-color);
+            padding: 7px 12px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent-color);
+        }
+
+        .theme-icon {
+            display: inline-flex;
+            line-height: 0;
+        }
+
+        .hero-header {
+            padding: 14px 0 26px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2.1rem;
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin-bottom: 1.2rem;
+        }
+
+        .action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            padding: 9px 16px;
+            border-radius: 8px;
+            border: 2px solid var(--accent-color);
+            background-color: var(--accent-color);
+            color: #ffffff;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+        }
+
+        [data-theme="dark"] .btn {
+            color: #161514;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+            text-decoration: none;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--accent-color);
+        }
+
+        [data-theme="dark"] .btn-outline {
+            color: var(--accent-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--accent-color);
+            color: #ffffff;
+        }
+
+        [data-theme="dark"] .btn-outline:hover {
+            color: #161514;
+        }
+
+        .copy-status {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* Backdrop Switcher */
+        .surface-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            flex-wrap: wrap;
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .surface-label {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .surface-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .surface-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            padding: 7px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: border-color 0.15s ease, background-color 0.15s ease;
+        }
+
+        .surface-btn[aria-pressed="true"] {
+            border-color: var(--accent-color);
+            background-color: var(--accent-soft);
+            color: var(--accent-color);
+        }
+
+        .swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.25);
+        }
+
+        /* Stickers Grid */
+        .stickers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .sticker-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sticker-stage {
+            background-color: var(--stage-bg);
+            background-image: var(--stage-pattern);
+            padding: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 300px;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.25s ease;
+        }
+
+        .zoom-trigger {
+            border: 0;
+            background: transparent;
+            padding: 0;
+            cursor: zoom-in;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .sticker-stage img {
+            max-width: 100%;
+            max-height: 280px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.22));
+            transition: transform 0.25s ease;
+        }
+
+        .zoom-trigger:hover img {
+            transform: scale(1.03);
+        }
+
+        .sticker-meta {
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .sticker-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .sticker-specs {
+            font-size: 0.84rem;
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        .sticker-desc {
+            font-size: 0.93rem;
+            color: var(--text-muted);
+        }
+
+        .sticker-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 8px;
+            flex-wrap: wrap;
+        }
+
+        .btn-sm {
+            padding: 7px 13px;
+            font-size: 0.85rem;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            background-color: rgba(12, 11, 10, 0.9);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .lightbox.is-open {
+            display: flex;
+        }
+
+        .lightbox-inner {
+            position: relative;
+            max-width: 92vw;
+            max-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lightbox-img {
+            max-width: 100%;
+            max-height: 82vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .lightbox-caption {
+            color: #f4efe8;
+            font-size: 0.96rem;
+            text-align: center;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            background-color: #161514;
+            color: #ffffff;
+            font-size: 1.3rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background-color: var(--accent-color);
+        }
+
+        @page {
+            size: A4;
+            margin: 10mm;
+        }
+
+        @media print {
+            body {
+                background: #ffffff !important;
+                color: #111827 !important;
+            }
+            .top-bar,
+            .action-row,
+            .surface-bar,
+            .sticker-actions,
+            .lightbox {
+                display: none !important;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+            }
+            .hero-header {
+                padding: 0 0 8pt;
+                margin-bottom: 10pt;
+            }
+            .stickers-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10pt;
+            }
+            .sticker-card {
+                border: 1px dashed #cbd5e1 !important;
+                background: #ffffff !important;
+                box-shadow: none !important;
+                break-inside: avoid;
+            }
+            .sticker-stage {
+                background: #ffffff !important;
+                padding: 8pt;
+                min-height: auto;
+                border-bottom: 1px solid #e5e7eb;
+            }
+            .sticker-stage img {
+                max-height: 62mm;
+                filter: none !important;
+            }
+            .sticker-meta {
+                padding: 6pt 8pt;
+            }
+        }
+    </style>
+</head>
+<body data-surface="white">
+    <div class="container">
+        <div class="top-bar">
+            <a href="../" class="back-link">← Back to Anton's Page</a>
+            <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme">
+                <span class="theme-icon" aria-hidden="true"></span>
+                <span class="theme-label">Dark</span>
+            </button>
+        </div>
+
+        <header class="hero-header">
+            <h1>Road Sticker Pack &amp; QR Previews</h1>
+            <p class="subtitle">
+                Five print-ready die-cut vinyl stickers designed for motorcycle panniers, top-boxes, helmets, and coffee-stop handouts. Every QR code decodes directly to Anton's North Thailand page.
+            </p>
+            <div class="action-row">
+                <a href="../" class="btn">Open Landing Target</a>
+                <button type="button" id="copy-url-btn" class="btn btn-outline">Copy Landing URL</button>
+                <button type="button" id="print-sheet-btn" class="btn btn-outline">Print A4 Sticker Sheet</button>
+                <span id="copy-url-status" class="copy-status" role="status" aria-live="polite"></span>
+            </div>
+        </header>
+
+        <section class="surface-bar" aria-label="Preview backdrop surface switcher">
+            <span class="surface-label">Preview Surface:</span>
+            <div class="surface-buttons">
+                <button type="button" class="surface-btn" data-surface-choice="white" aria-pressed="true">
+                    <span class="swatch" style="background:#f4f2ee;"></span> Matte White
+                </button>
+                <button type="button" class="surface-btn" data-surface-choice="black-pannier" aria-pressed="false">
+                    <span class="swatch" style="background:#17191c;"></span> Black Aluminum Pannier
+                </button>
+                <button type="button" class="surface-btn" data-surface-choice="silver-topbox" aria-pressed="false">
+                    <span class="swatch" style="background:#b9c1c9;"></span> Silver Top-Box
+                </button>
+                <button type="button" class="surface-btn" data-surface-choice="kraft" aria-pressed="false">
+                    <span class="swatch" style="background:#c69f72;"></span> Warm Kraft
+                </button>
+            </div>
+        </section>
+
+        <main class="stickers-grid">
+            <article class="sticker-card">
+                <div class="sticker-stage">
+                    <button type="button" class="zoom-trigger" data-lightbox-src="sticker-01-tatras-to-thailand.png" data-lightbox-caption="01 · Tatras to Thailand (1200×1200 Circular Die-Cut Vinyl Patch)" aria-label="Zoom sticker 01: Tatras to Thailand">
+                        <img src="sticker-01-tatras-to-thailand.png" alt="Circular die-cut vinyl sticker: Anton Slovakia to Thailand with mountain rider and QR badge" width="1200" height="1200">
+                    </button>
+                </div>
+                <div class="sticker-meta">
+                    <div>
+                        <h2 class="sticker-title">01 · Tatras to Thailand</h2>
+                        <div class="sticker-specs">1200 × 1200 px · Circular Die-Cut Patch</div>
+                        <p class="sticker-desc">Circular mountain-ridge emblem with curved typography, SK &amp; TH vector flags, and high-contrast QR badge.</p>
+                    </div>
+                    <div class="sticker-actions">
+                        <a href="sticker-01-tatras-to-thailand.png" download="sticker-01-tatras-to-thailand.png" class="btn btn-sm">Download PNG</a>
+                        <button type="button" class="btn btn-outline btn-sm zoom-btn" data-lightbox-src="sticker-01-tatras-to-thailand.png" data-lightbox-caption="01 · Tatras to Thailand (1200×1200 Circular Die-Cut Vinyl Patch)">Zoom</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sticker-card">
+                <div class="sticker-stage">
+                    <button type="button" class="zoom-trigger" data-lightbox-src="sticker-02-northern-loop-stamp.png" data-lightbox-caption="02 · Northern Loop Stamp (1200×1200 Perforated Travel Stamp)" aria-label="Zoom sticker 02: Northern Loop Stamp">
+                        <img src="sticker-02-northern-loop-stamp.png" alt="Perforated vintage travel stamp sticker: North Thailand 1,864 Curves with QR code" width="1200" height="1200" loading="lazy">
+                    </button>
+                </div>
+                <div class="sticker-meta">
+                    <div>
+                        <h2 class="sticker-title">02 · Northern Loop Stamp</h2>
+                        <div class="sticker-specs">1200 × 1200 px · Perforated Travel Stamp</div>
+                        <p class="sticker-desc">Vintage perforated postage stamp honoring the 1,864 curves of Mae Hong Son, Chiang Mai, and Chiang Rai.</p>
+                    </div>
+                    <div class="sticker-actions">
+                        <a href="sticker-02-northern-loop-stamp.png" download="sticker-02-northern-loop-stamp.png" class="btn btn-sm">Download PNG</a>
+                        <button type="button" class="btn btn-outline btn-sm zoom-btn" data-lightbox-src="sticker-02-northern-loop-stamp.png" data-lightbox-caption="02 · Northern Loop Stamp (1200×1200 Perforated Travel Stamp)">Zoom</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sticker-card">
+                <div class="sticker-stage">
+                    <button type="button" class="zoom-trigger" data-lightbox-src="sticker-03-night-pannier-shield.png" data-lightbox-caption="03 · Night Pannier Shield (1200×1200 Matte Obsidian &amp; Amber Shield)" aria-label="Zoom sticker 03: Night Pannier Shield">
+                        <img src="sticker-03-night-pannier-shield.png" alt="Dark obsidian and amber shield sticker: Not into crowds, Slovak rider in Thailand" width="1200" height="1200" loading="lazy">
+                    </button>
+                </div>
+                <div class="sticker-meta">
+                    <div>
+                        <h2 class="sticker-title">03 · Night Pannier Shield</h2>
+                        <div class="sticker-specs">1200 × 1200 px · Die-Cut Shield Contour</div>
+                        <p class="sticker-desc">Dark matte obsidian and warm amber shield built to pop on brushed silver or matte black aluminum panniers.</p>
+                    </div>
+                    <div class="sticker-actions">
+                        <a href="sticker-03-night-pannier-shield.png" download="sticker-03-night-pannier-shield.png" class="btn btn-sm">Download PNG</a>
+                        <button type="button" class="btn btn-outline btn-sm zoom-btn" data-lightbox-src="sticker-03-night-pannier-shield.png" data-lightbox-caption="03 · Night Pannier Shield (1200×1200 Matte Obsidian &amp; Amber Shield)">Zoom</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sticker-card">
+                <div class="sticker-stage">
+                    <button type="button" class="zoom-trigger" data-lightbox-src="sticker-04-tea-ridge-handout.png" data-lightbox-caption="04 · Tea Ridge Handout (1400×900 2-Panel Ticket-Stub Card)" aria-label="Zoom sticker 04: Tea Ridge Handout">
+                        <img src="sticker-04-tea-ridge-handout.png" alt="Horizontal 2-panel vinyl handout sticker with tea ridge rider and ticket-stub QR" width="1400" height="900" loading="lazy">
+                    </button>
+                </div>
+                <div class="sticker-meta">
+                    <div>
+                        <h2 class="sticker-title">04 · Tea Ridge Handout</h2>
+                        <div class="sticker-specs">1400 × 900 px · 2-Panel Vinyl Handout</div>
+                        <p class="sticker-desc">Horizontal split card combining northern tea terraces with a high-visibility cream QR ticket stub for easy swaps.</p>
+                    </div>
+                    <div class="sticker-actions">
+                        <a href="sticker-04-tea-ridge-handout.png" download="sticker-04-tea-ridge-handout.png" class="btn btn-sm">Download PNG</a>
+                        <button type="button" class="btn btn-outline btn-sm zoom-btn" data-lightbox-src="sticker-04-tea-ridge-handout.png" data-lightbox-caption="04 · Tea Ridge Handout (1400×900 2-Panel Ticket-Stub Card)">Zoom</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="sticker-card">
+                <div class="sticker-stage">
+                    <button type="button" class="zoom-trigger" data-lightbox-src="sticker-05-real-road-polaroid.png" data-lightbox-caption="05 · Real Road Polaroid (1200×1350 Polaroid Vinyl Frame)" aria-label="Zoom sticker 05: Real Road Polaroid">
+                        <img src="sticker-05-real-road-polaroid.png" alt="Polaroid vinyl sticker featuring Anton in northern tea fields with QR code" width="1200" height="1350" loading="lazy">
+                    </button>
+                </div>
+                <div class="sticker-meta">
+                    <div>
+                        <h2 class="sticker-title">05 · Real Road Polaroid</h2>
+                        <div class="sticker-specs">1200 × 1350 px · Polaroid Vinyl Frame</div>
+                        <p class="sticker-desc">Real-photo Polaroid cut featuring Anton out on the tea hills with a friendly invitation and bottom-strip QR.</p>
+                    </div>
+                    <div class="sticker-actions">
+                        <a href="sticker-05-real-road-polaroid.png" download="sticker-05-real-road-polaroid.png" class="btn btn-sm">Download PNG</a>
+                        <button type="button" class="btn btn-outline btn-sm zoom-btn" data-lightbox-src="sticker-05-real-road-polaroid.png" data-lightbox-caption="05 · Real Road Polaroid (1200×1350 Polaroid Vinyl Frame)">Zoom</button>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Sticker preview">
+        <div class="lightbox-inner">
+            <button type="button" id="lightbox-close" class="lightbox-close" aria-label="Close sticker preview">&times;</button>
+            <img id="lightbox-img" class="lightbox-img" alt="">
+            <p id="lightbox-caption" class="lightbox-caption"></p>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const LANDING_URL = 'https://toncek.github.io/anton_skapik_cv/journey/';
+
+            // Theme toggle
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = themeToggle.querySelector('.theme-icon');
+            const themeLabel = themeToggle.querySelector('.theme-label');
+            const htmlElement = document.documentElement;
+
+            const MOON_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>';
+            const SUN_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>';
+
+            function applyTheme(theme) {
+                htmlElement.setAttribute('data-theme', theme);
+                if (theme === 'dark') {
+                    themeIcon.innerHTML = SUN_SVG;
+                    themeLabel.textContent = 'Light';
+                } else {
+                    themeIcon.innerHTML = MOON_SVG;
+                    themeLabel.textContent = 'Dark';
+                }
+            }
+
+            const savedTheme = localStorage.getItem('journey-theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+            themeToggle.addEventListener('click', () => {
+                const nextTheme = htmlElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                localStorage.setItem('journey-theme', nextTheme);
+                applyTheme(nextTheme);
+            });
+
+            // Backdrop surface switcher
+            const surfaceButtons = document.querySelectorAll('.surface-btn');
+            surfaceButtons.forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const choice = btn.dataset.surfaceChoice;
+                    document.body.setAttribute('data-surface', choice);
+                    surfaceButtons.forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+                });
+            });
+
+            // Copy landing URL
+            const copyUrlBtn = document.getElementById('copy-url-btn');
+            const copyUrlStatus = document.getElementById('copy-url-status');
+            let copyTimer = null;
+
+            copyUrlBtn.addEventListener('click', async () => {
+                let copied = false;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    try {
+                        await navigator.clipboard.writeText(LANDING_URL);
+                        copied = true;
+                    } catch (_) {
+                        copied = false;
+                    }
+                }
+                if (!copied) {
+                    try {
+                        const tmp = document.createElement('textarea');
+                        tmp.value = LANDING_URL;
+                        tmp.setAttribute('readonly', '');
+                        tmp.style.position = 'absolute';
+                        tmp.style.left = '-9999px';
+                        document.body.appendChild(tmp);
+                        tmp.select();
+                        copied = document.execCommand('copy');
+                        document.body.removeChild(tmp);
+                    } catch (_) {
+                        copied = false;
+                    }
+                }
+                copyUrlBtn.textContent = 'Copied!';
+                copyUrlStatus.textContent = copied ? 'URL copied to clipboard.' : LANDING_URL;
+                clearTimeout(copyTimer);
+                copyTimer = setTimeout(() => {
+                    copyUrlBtn.textContent = 'Copy Landing URL';
+                    copyUrlStatus.textContent = '';
+                }, 2400);
+            });
+
+            // Print A4 sheet
+            document.getElementById('print-sheet-btn').addEventListener('click', () => {
+                window.print();
+            });
+
+            // Lightbox modal
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxCaption = document.getElementById('lightbox-caption');
+            const lightboxClose = document.getElementById('lightbox-close');
+            let lastTrigger = null;
+
+            function openLightbox(trigger) {
+                lastTrigger = trigger;
+                lightboxImg.src = trigger.dataset.lightboxSrc;
+                lightboxImg.alt = trigger.dataset.lightboxCaption || '';
+                lightboxCaption.textContent = trigger.dataset.lightboxCaption || '';
+                lightbox.classList.add('is-open');
+                lightboxClose.focus();
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('is-open');
+                lightboxImg.removeAttribute('src');
+                if (lastTrigger) {
+                    lastTrigger.focus();
+                    lastTrigger = null;
+                }
+            }
+
+            document.querySelectorAll('.zoom-trigger, .zoom-btn').forEach((el) => {
+                el.addEventListener('click', () => openLightbox(el));
+            });
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) closeLightbox();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+                    closeLightbox();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
